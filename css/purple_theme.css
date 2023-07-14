@@ -1,0 +1,88 @@
+:root {
+
+    /* ### Theme 3 */
+
+    /* #### Backgrounds */
+
+    --very-dark-violet-main-background: hsl(268, 75%, 9%);
+    --very-dark-violet-toggle-bg: hsl(268, 71%, 12%);
+
+    /* #### Keys */
+
+    --dark-violet-key-background: hsl(281, 89%, 26%);
+    --vivid-magenta-key-shadow: hsl(285, 91%, 52%);
+
+    --pure-cyan-key-background: hsl(176, 100%, 44%);
+    --soft-cyan-key-shadow: hsl(177, 92%, 70%);
+
+    --very-dark-violet-key-background: hsl(268, 47%, 21%);
+    --dark-magenta-key-shadow: hsl(290, 70%, 36%);
+
+    /* #### Text */
+
+    --light-yellow: hsl(52, 100%, 62%);
+    --very-dark-blue: hsl(198, 20%, 13%);
+    --white: hsl(0, 0%, 100%);
+}
+
+body {
+    background-color: var(--very-dark-violet-main-background);
+}
+
+
+.container__calculator__header {
+    color: var(--light-yellow);
+}
+
+.container__calculator__header__title {
+    color: var(--light-yellow);
+}
+
+.container__calculator__header__theme__keypad__buttons {
+    background-color: var(--very-dark-violet-toggle-bg);
+}
+
+.container__calculator__header__theme__keypad__buttons>div {
+    background-color: var(--pure-cyan-key-background);
+}
+
+.container__calculator__input {
+    background-color: var(--very-dark-violet-toggle-bg);
+}
+
+.container__calculator__input>input {
+    background-color: transparent;
+    color: var(--light-yellow);
+}
+
+.container__calculator__input>input::placeholder {
+    color: var(--light-yellow)
+}
+
+.container__calculator__controls {
+    background-color: var(--very-dark-violet-toggle-bg);
+}
+
+.container__calculator__controls__buttons {
+    color: var(--light-yellow);
+    background-color: var(--very-dark-violet-key-background);
+    box-shadow: 0px 3px var(--vivid-magenta-key-shadow);
+}
+
+.reset__button {
+    color: var(--white);
+    background-color: var(--very-dark-violet-key-background);
+    box-shadow: 0 3px var(--dark-magenta-key-shadow);
+}
+
+.delete__button {
+    color: var(--white);
+    background-color: var(--very-dark-violet-key-background);
+    box-shadow: 0 3px var(--dark-magenta-key-shadow);
+}
+
+.equal__button {
+    color: var(--very-dark-blue);
+    background-color: var(--pure-cyan-key-background);
+    box-shadow: 0 3px var(--soft-cyan-key-shadow);
+}

@@ -1,0 +1,89 @@
+:root{
+/* ### Theme 2 */
+
+/* #### Backgrounds */
+
+--light-gray-main-bg: hsl(0, 0%, 90%);
+--grayish-red-toggle-bg: hsl(0, 5%, 81%);
+--very-light-gray-screen-bg: hsl(0, 0%, 93%);
+
+/* #### Keys */
+
+--dark-moderate-cyan-key-bg: hsl(185, 42%, 37%);
+--very-dark-cyan-key-shadow: hsl(185, 58%, 25%);
+
+--orange-key: hsl(25, 98%, 40%);
+--dark-orange-key-shadow: hsl(25, 99%, 27%);
+
+--light-grayish-yellow-key-bg: hsl(45, 7%, 89%);
+--dark-grayish-orange-key-shadow: hsl(35, 11%, 61%);
+
+/* #### Text */
+
+--very-dark-grayish-yellow: hsl(60, 10%, 19%);
+--white: hsl(0, 0%, 100%);
+}
+
+
+body {
+    background-color: var(--light-gray-main-bg);
+}
+
+
+.container__calculator__header{
+    color: var(--very-dark-grayish-yellow);
+}
+
+.container__calculator__header__title{
+    color: var(--very-dark-grayish-yellow);
+}
+
+.container__calculator__header__theme__keypad__buttons{
+    background-color: var(--grayish-red-toggle-bg);
+}
+
+.container__calculator__header__theme__keypad__buttons > div{
+    background-color: var(--orange-key);
+}
+
+.container__calculator__input{
+    background-color: var(--very-light-gray-screen-bg);
+}
+
+.container__calculator__input > input{
+    background-color: transparent;
+    color: var(--very-dark-grayish-yellow);
+}
+
+.container__calculator__input > input::placeholder{
+    color: var(--very-dark-grayish-yellow)
+}
+
+.container__calculator__controls{
+    background-color: var(--grayish-red-toggle-bg);
+}
+
+.container__calculator__controls__buttons{
+    color: var(--very-dark-grayish-yellow);
+    background-color: var(--light-grayish-yellow-key-bg);
+    box-shadow: 0px 3px var(--dark-grayish-orange-key-shadow);
+}
+
+.reset__button{
+    color: var(--white);
+    background-color: var(--dark-moderate-cyan-key-bg);
+    box-shadow: 0 3px var(--very-dark-cyan-key-shadow);
+}
+
+.delete__button{
+    color: var(--white);
+    box-shadow: 0 3px var(--very-dark-cyan-key-shadow);
+    background-color: var(--dark-moderate-cyan-key-bg);
+
+}
+
+.equal__button{
+    color: var(--white);
+    background-color: var(--orange-key);
+    box-shadow: 0 3px var(--dark-orange-key-shadow);
+}

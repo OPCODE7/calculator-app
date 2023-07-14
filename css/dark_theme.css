@@ -1,0 +1,88 @@
+
+:root {
+    /* ## Colors */
+
+    /* ### Theme 1 */
+
+    /* #### Backgrounds */
+    --very-dark-desaturated-blue-body-bg: hsl(222, 26%, 31%);
+    --very-dark-desaturated-blue-keypad-bg: hsl(223, 31%, 20%);
+    --very-dark-desaturated-blue-screen-bg: hsl(224, 36%, 15%);
+
+    /* #### Keys */
+    --desaturated-dark-blue-key-bg: hsl(225, 21%, 49%);
+    --desaturated-dark-blue-key-shadow: hsl(224, 28%, 35%);
+    --red: hsl(6, 63%, 50%);
+    --dark-red: hsl(6, 70%, 34%);
+    --light-grayish-orange: hsl(30, 25%, 89%);
+    --grayish-orange: hsl(28, 16%, 65%);
+
+    /* #### Text */
+    --very-dark-grayish-blue: hsl(221, 14%, 31%);
+    --white: hsl(0, 0%, 100%);
+
+}
+
+
+body {
+    background-color: var(--very-dark-desaturated-blue-body-bg);
+}
+
+
+.container__calculator__header{
+    color: var(--white);
+}
+
+.container__calculator__header__title{
+    color: var(--white);
+}
+
+.container__calculator__header__theme__keypad__buttons{
+    background-color: var(--very-dark-desaturated-blue-keypad-bg);
+}
+
+.container__calculator__header__theme__keypad__buttons > div{
+    background-color: var(--red);
+}
+
+.container__calculator__input{
+    background-color: var(--very-dark-desaturated-blue-screen-bg);
+}
+
+.container__calculator__input > input{
+    background-color: transparent;
+    color: var(--white);
+}
+
+.container__calculator__input > input::placeholder{
+    color: var(--white)
+}
+
+.container__calculator__controls{
+    background-color: var(--very-dark-desaturated-blue-keypad-bg);
+}
+
+.container__calculator__controls__buttons{
+    color: var(--very-dark-grayish-blue);
+    background-color: var(--light-grayish-orange);
+    box-shadow: 0px 3px var(--grayish-orange);
+}
+
+.reset__button{
+    color: var(--white);
+    background-color: var(--desaturated-dark-blue-key-bg);
+    box-shadow: 0 3px var(--desaturated-dark-blue-key-shadow);
+}
+
+.delete__button{
+    color: var(--white);
+    box-shadow: 0 3px var(--desaturated-dark-blue-key-shadow);
+    background-color: var(--desaturated-dark-blue-key-bg);
+
+}
+
+.equal__button{
+    color: var(--white);
+    background-color: var(--red);
+    box-shadow: 0 3px var(--dark-red);
+}
