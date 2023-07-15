@@ -105,10 +105,15 @@ body {
 
 .container__calculator__controls__buttons{
     border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+.container__calculator__controls__buttons > span{
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;    
     align-items: center;
-    font-size: 1.5rem;
 }
 
 .brigthness-130:hover{
@@ -124,6 +129,21 @@ body {
 
 .opacity-none{
     opacity: 0;
+}
+
+.click__btn{
+    animation-name: animation-click-btn;
+    animation-duration: 1s;
+}
+
+@keyframes animation-click-btn {
+    0%{
+        filter: brightness(100%);
+    }50%{
+        filter: brightness(130%);
+    }100%{
+        filter: brightness(100%);
+    }
 }
 
 @media(min-width: 675px){
