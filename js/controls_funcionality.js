@@ -39,7 +39,7 @@ export default function controlsFuncionality(inputSelector) {
     });
 
     function validateSign(ascciCode, key) {
-        if (ascciCode >= 42 && ascciCode <= 47 || ascciCode===120) {
+        if (ascciCode >= 42 && ascciCode <= 47 || ascciCode === 120) {
             if ($inputControl.value.length > 0) {
                 if (key === "*") {
                     key = "x";
@@ -55,11 +55,25 @@ export default function controlsFuncionality(inputSelector) {
                 } else {
                     $inputControl.value += key;
                 }
-            } else{
+            } else {
                 $inputControl.value = "0" + key;
             }
         } else if (ascciCode >= 48 && ascciCode <= 57) {
-            $inputControl.value += key;
+            if ($inputControl.value.length > 0) {
+                if (key !== "0") {
+                    let lastValue = $inputControl.value.at($inputControl.value.length - 1);
+                    if (lastValue === "0") {
+                        let sliceValue = $inputControl.value.slice(0, $inputControl.value.length - 1);
+                        $inputControl.value = sliceValue + key;
+                    }else {
+                        $inputControl.value += key;
+                    }
+                }else{
+                    $inputControl.value += key;
+                }
+            } else {
+                $inputControl.value += key;
+            }
         }
     }
 }
