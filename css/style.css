@@ -77,19 +77,13 @@ body {
     width: 100%;
     height: 15%;
     border-radius: 10px;
-}
-
-.container__calculator__input > input{
-    width: 100%;
-    height: 100%;
-    outline: none;
-    border: 0;
     font-size: 2.5rem;
     text-align: end;
-    padding-right: 1rem;
+    padding: 1rem 1.5rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
 }
-
-
 
 .container__calculator__controls{
     width: 100%;

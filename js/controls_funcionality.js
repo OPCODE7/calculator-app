@@ -7,12 +7,12 @@ export default function controlsFuncionality(inputSelector) {
             validateSign(e.target.textContent.charCodeAt(0), e.target.textContent);
         }
         if (e.target.matches(".reset__button > span")) {
-            $inputControl.value = "";
+            $inputControl.textContent = "0";
         }
         if (e.target.matches(".delete__button > span")) {
-            const arrayValue = $inputControl.value.split('');
+            const arrayValue = $inputControl.textContent.split('');
             arrayValue.pop();
-            $inputControl.value = arrayValue.join('');
+            $inputControl.textContent = arrayValue.join('');
         }
     });
 
@@ -30,9 +30,9 @@ export default function controlsFuncionality(inputSelector) {
         });
 
         if (key === "Backspace") {
-            const arrayValue = $inputControl.value.split('');
+            const arrayValue = $inputControl.textContent.split('');
             arrayValue.pop();
-            $inputControl.value = arrayValue.join('');
+            $inputControl.textContent = arrayValue.join('');
         }
 
         validateSign(ascciCode, key);
@@ -40,39 +40,39 @@ export default function controlsFuncionality(inputSelector) {
 
     function validateSign(ascciCode, key) {
         if (ascciCode >= 42 && ascciCode <= 47 || ascciCode === 120) {
-            if ($inputControl.value.length > 0) {
+            if ($inputControl.textContent.length > 0) {
                 if (key === "*") {
                     key = "x";
                 }
                 if (key === ",") {
                     key = ".";
                 }
-                let lastValue = $inputControl.value.at($inputControl.value.length - 1);
+                let lastValue = $inputControl.textContent.at($inputControl.textContent.length - 1);
                 if (lastValue.charCodeAt(0) <= 47 || lastValue.charCodeAt(0) === 120) {
-                    let sliceValue = $inputControl.value.slice(0, $inputControl.value.length - 1);
-                    $inputControl.value = sliceValue + key;
+                    let sliceValue = $inputControl.textContent.slice(0, $inputControl.textContent.length - 1);
+                    $inputControl.textContent = sliceValue + key;
 
                 } else {
-                    $inputControl.value += key;
+                    $inputControl.textContent += key;
                 }
             } else {
-                $inputControl.value = "0" + key;
+                $inputControl.textContent = "0" + key;
             }
         } else if (ascciCode >= 48 && ascciCode <= 57) {
-            if ($inputControl.value.length > 0) {
+            if ($inputControl.textContent.length > 0) {
                 if (key !== "0") {
-                    let lastValue = $inputControl.value.at($inputControl.value.length - 1);
+                    let lastValue = $inputControl.textContent.at($inputControl.textContent.length - 1);
                     if (lastValue === "0") {
-                        let sliceValue = $inputControl.value.slice(0, $inputControl.value.length - 1);
-                        $inputControl.value = sliceValue + key;
+                        let sliceValue = $inputControl.textContent.slice(0, $inputControl.textContent.length - 1);
+                        $inputControl.textContent = sliceValue + key;
                     }else {
-                        $inputControl.value += key;
+                        $inputControl.textContent += key;
                     }
                 }else{
-                    $inputControl.value += key;
+                    $inputControl.textContent += key;
                 }
             } else {
-                $inputControl.value += key;
+                $inputControl.textContent += key;
             }
         }
     }

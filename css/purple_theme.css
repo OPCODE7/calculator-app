@@ -48,15 +48,7 @@ body {
 
 .container__calculator__input {
     background-color: var(--very-dark-violet-toggle-bg);
-}
-
-.container__calculator__input>input {
-    background-color: transparent;
     color: var(--light-yellow);
-}
-
-.container__calculator__input>input::placeholder {
-    color: var(--light-yellow)
 }
 
 .container__calculator__controls {

@@ -5,9 +5,9 @@ export default function calculator(operation,btnEqual){
     const $input= d.getElementById(operation);
     
     $btn.addEventListener("click",e => {
-        let result= $input.value.replaceAll("x","*");
+        let result= $input.textContent.replaceAll("x","*");
 
-        $input.value= eval(result);
+        $input.textContent= eval(result);
     });
 
     d.addEventListener("keyup",e=>{
