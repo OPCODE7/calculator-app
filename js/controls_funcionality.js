@@ -30,9 +30,13 @@ export default function controlsFuncionality(inputSelector) {
         });
 
         if (key === "Backspace") {
-            const arrayValue = $inputControl.textContent.split('');
-            arrayValue.pop();
-            $inputControl.textContent = arrayValue.join('');
+            if($inputControl.textContent.length===1){
+                $inputControl.textContent= "0";
+            }else{
+                const arrayValue = $inputControl.textContent.split('');
+                arrayValue.pop();
+                $inputControl.textContent = arrayValue.join('');
+            }
         }
 
         validateSign(ascciCode, key);
@@ -65,15 +69,18 @@ export default function controlsFuncionality(inputSelector) {
                     if (lastValue === "0") {
                         let sliceValue = $inputControl.textContent.slice(0, $inputControl.textContent.length - 1);
                         $inputControl.textContent = sliceValue + key;
-                    }else {
+                    } else {
                         $inputControl.textContent += key;
                     }
-                }else{
-                    $inputControl.textContent += key;
+                } else {
+                    if($inputControl.textContent.length===1){
+                        $inputControl.textContent= "0";
+                    }else{
+                        $inputControl.textContent += key;
+                    }
                 }
-            } else {
-                $inputControl.textContent += key;
             }
+
         }
     }
 }
