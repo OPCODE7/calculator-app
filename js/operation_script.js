@@ -5,9 +5,13 @@ export default function calculator(operation,btnEqual){
     const $input= d.getElementById(operation);
     
     $btn.addEventListener("click",e => {
-        let result= $input.textContent.replaceAll("x","*");
-
-        $input.textContent= eval(result);
+        let operation= $input.textContent.replaceAll("x","*");
+        let result= eval(operation).toString();
+        if(result==="NaN" || result ==="Infinity"){
+            $input.textContent= "Resultado indefinido";
+        }else{
+            $input.textContent= result;
+        }
     });
 
     d.addEventListener("keyup",e=>{

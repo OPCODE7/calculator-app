@@ -10,9 +10,7 @@ export default function controlsFuncionality(inputSelector) {
             $inputControl.textContent = "0";
         }
         if (e.target.matches(".delete__button > span")) {
-            const arrayValue = $inputControl.textContent.split('');
-            arrayValue.pop();
-            $inputControl.textContent = arrayValue.join('');
+            deleteCharacter($inputControl);
         }
     });
 
@@ -30,13 +28,7 @@ export default function controlsFuncionality(inputSelector) {
         });
 
         if (key === "Backspace") {
-            if($inputControl.textContent.length===1){
-                $inputControl.textContent= "0";
-            }else{
-                const arrayValue = $inputControl.textContent.split('');
-                arrayValue.pop();
-                $inputControl.textContent = arrayValue.join('');
-            }
+            deleteCharacter($inputControl);
         }
 
         validateSign(ascciCode, key);
@@ -73,14 +65,24 @@ export default function controlsFuncionality(inputSelector) {
                         $inputControl.textContent += key;
                     }
                 } else {
-                    if($inputControl.textContent.length===1){
-                        $inputControl.textContent= "0";
-                    }else{
+                    if ($inputControl.textContent.length === 1) {
+                        $inputControl.textContent = "0";
+                    } else {
                         $inputControl.textContent += key;
                     }
                 }
             }
 
+        }
+    }
+
+    function deleteCharacter(input) {
+        if (input.textContent.length === 1) {
+            input.textContent = "0";
+        } else {
+            const arrayValue = input.textContent.split('');
+            arrayValue.pop();
+            input.textContent = arrayValue.join('');
         }
     }
 }
