@@ -12,6 +12,10 @@ export default function controlsFuncionality(inputSelector) {
         if (e.target.matches(".delete__button > span")) {
             deleteCharacter($inputControl);
         }
+        if(e.target.matches("#btn-trigonometry-func > span")){
+            const $containerFuncs= d.querySelector(".container__calculator__controls__buttons__func");
+            $containerFuncs.classList.toggle("container__calculator__controls__buttons__func__animate");
+        }
     });
 
     d.addEventListener("keyup", e => {
@@ -35,13 +39,16 @@ export default function controlsFuncionality(inputSelector) {
     });
 
     function validateSign(ascciCode, key) {
-        if (ascciCode >= 42 && ascciCode <= 47 || ascciCode === 120) {
+        if (ascciCode >= 42 && ascciCode <= 47 || ascciCode === 120 || key==="mod") {
             if ($inputControl.textContent.length > 0) {
                 if (key === "*") {
                     key = "x";
                 }
                 if (key === ",") {
                     key = ".";
+                }
+                if(key==="mod"){
+                    key= "%";
                 }
                 let lastValue = $inputControl.textContent.at($inputControl.textContent.length - 1);
                 if (lastValue.charCodeAt(0) <= 47 || lastValue.charCodeAt(0) === 120) {

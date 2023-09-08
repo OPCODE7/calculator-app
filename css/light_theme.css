@@ -1,27 +1,27 @@
-:root{
-/* ### Theme 2 */
+:root {
+    /* ### Theme 2 */
 
-/* #### Backgrounds */
+    /* #### Backgrounds */
 
---light-gray-main-bg: hsl(0, 0%, 90%);
---grayish-red-toggle-bg: hsl(0, 5%, 81%);
---very-light-gray-screen-bg: hsl(0, 0%, 93%);
+    --light-gray-main-bg: hsl(0, 0%, 90%);
+    --grayish-red-toggle-bg: hsl(0, 5%, 81%);
+    --very-light-gray-screen-bg: hsl(0, 0%, 93%);
 
-/* #### Keys */
+    /* #### Keys */
 
---dark-moderate-cyan-key-bg: hsl(185, 42%, 37%);
---very-dark-cyan-key-shadow: hsl(185, 58%, 25%);
+    --dark-moderate-cyan-key-bg: hsl(185, 42%, 37%);
+    --very-dark-cyan-key-shadow: hsl(185, 58%, 25%);
 
---orange-key: hsl(25, 98%, 40%);
---dark-orange-key-shadow: hsl(25, 99%, 27%);
+    --orange-key: hsl(25, 98%, 40%);
+    --dark-orange-key-shadow: hsl(25, 99%, 27%);
 
---light-grayish-yellow-key-bg: hsl(45, 7%, 89%);
---dark-grayish-orange-key-shadow: hsl(35, 11%, 61%);
+    --light-grayish-yellow-key-bg: hsl(45, 7%, 89%);
+    --dark-grayish-orange-key-shadow: hsl(35, 11%, 61%);
 
-/* #### Text */
+    /* #### Text */
 
---very-dark-grayish-yellow: hsl(60, 10%, 19%);
---white: hsl(0, 0%, 100%);
+    --very-dark-grayish-yellow: hsl(60, 10%, 19%);
+    --white: hsl(0, 0%, 100%);
 }
 
 
@@ -30,52 +30,62 @@ body {
 }
 
 
-.container__calculator__header{
+.container__calculator__header {
     color: var(--very-dark-grayish-yellow);
 }
 
-.container__calculator__header__title{
+.container__calculator__header__title {
     color: var(--very-dark-grayish-yellow);
 }
 
-.container__calculator__header__theme__keypad__buttons{
+.container__calculator__header__theme__keypad__buttons {
     background-color: var(--grayish-red-toggle-bg);
 }
 
-.container__calculator__header__theme__keypad__buttons > div{
+.container__calculator__header__theme__keypad__buttons>div {
     background-color: var(--orange-key);
 }
 
-.container__calculator__input{
+.container__calculator__input {
     background-color: var(--very-light-gray-screen-bg);
     color: var(--very-dark-grayish-yellow);
 }
 
 
-.container__calculator__controls{
+.container__calculator__controls {
     background-color: var(--grayish-red-toggle-bg);
 }
 
-.container__calculator__controls__buttons{
+.container__calculator__controls__buttons {
     color: var(--very-dark-grayish-yellow);
     background-color: var(--light-grayish-yellow-key-bg);
     box-shadow: 0px 3px var(--dark-grayish-orange-key-shadow);
 }
 
-.reset__button{
+.container__calculator__controls__buttons__func {
+    background-color: var(--dark-moderate-cyan-key-bg);
+}
+
+
+.container__calculator__controls__buttons__func>span {
+    background-color: var(--very-light-gray-screen-bg);
+    color: var(--very-dark-grayish-yellow);
+}
+
+.reset__button {
     color: var(--white);
     background-color: var(--dark-moderate-cyan-key-bg);
     box-shadow: 0 3px var(--very-dark-cyan-key-shadow);
 }
 
-.delete__button{
+.delete__button {
     color: var(--white);
     box-shadow: 0 3px var(--very-dark-cyan-key-shadow);
     background-color: var(--dark-moderate-cyan-key-bg);
 
 }
 
-.equal__button{
+.equal__button {
     color: var(--white);
     background-color: var(--orange-key);
     box-shadow: 0 3px var(--dark-orange-key-shadow);

@@ -61,15 +61,26 @@ body {
     box-shadow: 0px 3px var(--vivid-magenta-key-shadow);
 }
 
+.container__calculator__controls__buttons__func {
+    background-color: var(--dark-violet-key-background);
+}
+
+
+.container__calculator__controls__buttons__func>span {
+    background-color: var(--very-dark-violet-key-background);
+    color: var(--very-dark-grayish-yellow);
+}
+
+
 .reset__button {
     color: var(--white);
-    background-color: var(--very-dark-violet-key-background);
+    background-color: var(--dark-violet-key-background);
     box-shadow: 0 3px var(--dark-magenta-key-shadow);
 }
 
 .delete__button {
     color: var(--white);
-    background-color: var(--very-dark-violet-key-background);
+    background-color: var(--dark-violet-key-background); 
     box-shadow: 0 3px var(--dark-magenta-key-shadow);
 }
 

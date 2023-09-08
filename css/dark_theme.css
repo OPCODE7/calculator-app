@@ -61,6 +61,17 @@ body {
     box-shadow: 0px 3px var(--grayish-orange);
 }
 
+.container__calculator__controls__buttons__func {
+    background-color: var(--desaturated-dark-blue-key-bg);
+}
+
+
+.container__calculator__controls__buttons__func>span {
+    background-color: var(--light-grayish-orange);
+    color: var(--very-dark-grayish-blue);
+}
+
+
 .reset__button{
     color: var(--white);
     background-color: var(--desaturated-dark-blue-key-bg);

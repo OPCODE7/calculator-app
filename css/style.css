@@ -90,11 +90,15 @@ body {
     height: 70%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(5,1fr);
+    grid-template-rows: repeat(6,1fr);
     gap: 2vh;
     cursor: pointer;
     border-radius: 10px;
     padding: 1rem;
+}
+
+.container__calculator__controls > :nth-child(1){
+    grid-area: 1/1/2/3;
 }
 
 .container__calculator__controls__buttons{
@@ -110,15 +114,62 @@ body {
     align-items: center;
 }
 
+#btn-trigonometry-func{
+    width: 100%;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.fa-angle-down{
+    margin-left: 3px;
+}
+
+.container__calculator__controls__buttons__func{
+    width: 100%;
+    position: absolute;
+    height: 5vh;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    gap: 2px;
+    border-radius: 5px;
+    visibility: hidden;
+    cursor: default;
+    z-index: 1;
+}
+
+.container__calculator__controls__buttons__func__animate{
+    transition: all 1s;
+    bottom: -75%;
+    visibility: visible;
+}
+
+
+.container__calculator__controls__buttons__func > span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    flex: 1 0 5%;
+    cursor: pointer;
+}
+
+.container__calculator__controls__buttons__func > span:hover{
+    font-size: 1.3rem;
+}
+
 .brigthness-130:hover{
     filter: brightness(130%);
 }
 .reset__button{
-    grid-area: 5/1/6/3;
+    grid-area: 6/1/7/3;
 }
 
 .equal__button{
-    grid-area: 5/3/6/5;
+    grid-area: 6/3/7/5;
 }
 
 .opacity-none{
