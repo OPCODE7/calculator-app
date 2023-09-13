@@ -6,8 +6,8 @@ export default function calculator(operation,btnEqual){
     
     d.addEventListener("click",e => {
         if(e.target===$btnEqual){
-
             let operation= $input.textContent.replaceAll("x","*");
+            
             let result= eval(operation).toString();
             if(result==="NaN" || result ==="Infinity"){
                 $input.textContent= "Resultado indefinido";
@@ -25,11 +25,3 @@ export default function calculator(operation,btnEqual){
     });
 }
 
-function factorial(n){
-    return n===0 || n===1 ? n : n * factorial(n-1);
-}
-
-
-function trigonemtryFuncs(){
-
-}
