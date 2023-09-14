@@ -65,15 +65,20 @@ export default function controlsFuncionality(inputSelector) {
                 let factorialResult = factorial(parseFloat(lastValue));
                 changeLastValueOfInput($inputControl,factorialResult);
             }
-        } else if (key === "sin" || key === "cos" || key === "tan") {
+        } else if (/[sincostan]/.test(key)) {
             let arrayTextInput = $inputControl.textContent.split(/\D/);
             let lastValue = [...arrayTextInput].pop();
+            const $inverseActivator= d.querySelector("#inverse");
+            let flag= !$inverseActivator.classList.contains("opacity-70") ? false : true;
 
             if (!isNaN(lastValue)) {
-                let result = trigonemtryFuncs(key, lastValue);
+                let result = trigonemtryFuncs(key, lastValue,flag);
+                console.log(flag);
                 changeLastValueOfInput($inputControl,result);
             }
         }
+
+
     }
 
     d.addEventListener("click", e => {
@@ -89,11 +94,19 @@ export default function controlsFuncionality(inputSelector) {
         if (e.target.matches("#btn-trigonometry-func > span")) {
             
             $containerFuncs.classList.toggle("container__calculator__controls__buttons__func__animate");
-        }else{
+        }else if(!e.target.matches("#inverse")){
             if($containerFuncs.classList.contains("container__calculator__controls__buttons__func__animate")){
                 $containerFuncs.classList.remove("container__calculator__controls__buttons__func__animate");
             }
         }
+
+        if(e.target.matches("#inverse")){
+            const $inverseItems= d.querySelectorAll(".container__calculator__controls__buttons__func> span > b");
+            $inverseItems.forEach(item => item.classList.toggle("d-none"));
+            e.target.classList.toggle("opacity-70");
+
+        }
+
     });
 
     d.addEventListener("keyup", e => {
@@ -121,17 +134,17 @@ function factorial(n) {
     return n === 0 || n === 1 ? n : n * factorial(n - 1);
 }
 
-function trigonemtryFuncs(func, value) {
+function trigonemtryFuncs(func, value,flag) {
     let result = 0;
     switch (func) {
-        case "sin":
-            result = Math.sin(value);
+        case "sen-1":
+            result= flag===true ? Math.asin(value) :  Math.sin(value);
             break;
-        case "cos":
-            result = Math.cos(value);
+        case "cos-1":
+            result = flag===true ? Math.acos(value) : Math.cos(value);
             break;
-        case "tan":
-            result = Math.tan(value);
+        case "tan-1":
+            result = flag===true ? Math.atan(value) :  Math.tan(value);
             break;
         default:
             break;
