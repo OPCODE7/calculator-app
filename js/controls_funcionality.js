@@ -1,8 +1,15 @@
 export default function controlsFuncionality(inputSelector) {
     const d = document;
-    const $inputControl = d.querySelector(inputSelector)
+    const $inputControl = d.querySelector(inputSelector);
     const $inputControls = d.querySelectorAll(".container__calculator__controls__buttons");
     const $containerFuncs = d.querySelector(".container__calculator__controls__buttons__func");
+    const cssClasses = {
+        animateFuncsContainer: "container__calculator__controls__buttons__func__animate",
+        dNone: "d-none",
+        op60: "opacity-70",
+        clickBtn: "click__btn"
+
+    }
 
     function deleteCharacter(input) {
         if (input.textContent.length === 1) {
@@ -30,9 +37,9 @@ export default function controlsFuncionality(inputSelector) {
                 if (key === "mod") {
                     key = "%";
                 }
-                let lastValue = GET_LAST_CHARACTER_INPUT($inputControl);
-                if (lastValue.charCodeAt(0) <= 47 && lastValue.charCodeAt(0) !== 41 || lastValue.charCodeAt(0) === 120) {
-                    changeLastValueOfInput($inputControl,key);
+                let lastCharacter = GET_LAST_CHARACTER_INPUT($inputControl);
+                if (lastCharacter.charCodeAt(0) <= 47 && lastCharacter.charCodeAt(0) !== 41 || lastCharacter.charCodeAt(0) === 120) {
+                    changeLastValueOfInput($inputControl, key);
 
                 } else {
                     $inputControl.textContent += key;
@@ -43,9 +50,9 @@ export default function controlsFuncionality(inputSelector) {
         } else if (ascciCode >= 48 && ascciCode <= 57) {
             if ($inputControl.textContent.length > 0) {
                 if (key !== "0") {
-                    let lastValue = GET_LAST_CHARACTER_INPUT($inputControl);
-                    if (lastValue === "0") {
-                        changeLastValueOfInput($inputControl,key);
+                    let lastCharacter = GET_LAST_CHARACTER_INPUT($inputControl);
+                    if (lastCharacter === "0") {
+                        changeLastValueOfInput($inputControl, key);
                     } else {
                         $inputControl.textContent += key;
                     }
@@ -61,20 +68,19 @@ export default function controlsFuncionality(inputSelector) {
             let arrayTextInput = $inputControl.textContent.split(/\D/);
             let lastValue = [...arrayTextInput].pop();
 
-            if (!isNaN(lastValue) && lastValue <= 170) {
+            if (/\d/.test(lastValue) && lastValue <= 170) {
                 let factorialResult = factorial(parseFloat(lastValue));
-                changeLastValueOfInput($inputControl,factorialResult);
+                changeLastValueOfInput($inputControl, factorialResult);
             }
         } else if (/[sincostan]/.test(key)) {
             let arrayTextInput = $inputControl.textContent.split(/\D/);
             let lastValue = [...arrayTextInput].pop();
-            const $inverseActivator= d.querySelector("#inverse");
-            let flag= !$inverseActivator.classList.contains("opacity-70") ? false : true;
+            const $inverseActivator = d.querySelector("#inverse");
+            let flag = !$inverseActivator.classList.contains(cssClasses.op60) ? false : true;
 
             if (!isNaN(lastValue)) {
-                let result = trigonemtryFuncs(key, lastValue,flag);
-                console.log(flag);
-                changeLastValueOfInput($inputControl,result);
+                let result = trigonemtryFuncs(key, lastValue, flag);
+                changeLastValueOfInput($inputControl, result);
             }
         }
 
@@ -92,18 +98,18 @@ export default function controlsFuncionality(inputSelector) {
             deleteCharacter($inputControl);
         }
         if (e.target.matches("#btn-trigonometry-func > span")) {
-            
-            $containerFuncs.classList.toggle("container__calculator__controls__buttons__func__animate");
-        }else if(!e.target.matches("#inverse")){
-            if($containerFuncs.classList.contains("container__calculator__controls__buttons__func__animate")){
-                $containerFuncs.classList.remove("container__calculator__controls__buttons__func__animate");
+
+            $containerFuncs.classList.toggle(cssClasses.animateFuncsContainer);
+        } else if (!e.target.matches("#inverse")) {
+            if ($containerFuncs.classList.contains(cssClasses.animateFuncsContainer)) {
+                $containerFuncs.classList.remove(cssClasses.animateFuncsContainer);
             }
         }
 
-        if(e.target.matches("#inverse")){
-            const $inverseItems= d.querySelectorAll(".container__calculator__controls__buttons__func> span > b");
-            $inverseItems.forEach(item => item.classList.toggle("d-none"));
-            e.target.classList.toggle("opacity-70");
+        if (e.target.matches("#inverse")) {
+            const $inverseItems = d.querySelectorAll(".container__calculator__controls__buttons__func> span > b");
+            $inverseItems.forEach(item => item.classList.toggle(cssClasses.dNone));
+            e.target.classList.toggle(cssClasses.op60);
 
         }
 
@@ -115,9 +121,9 @@ export default function controlsFuncionality(inputSelector) {
         let ascciCode = key.charCodeAt(0);
         $inputControls.forEach(control => {
             if (key === control.firstElementChild.textContent) {
-                control.classList.add("click__btn");
+                control.classList.add(cssClasses.clickBtn);
                 setTimeout(() => {
-                    control.classList.remove("click__btn");
+                    control.classList.remove(cssClasses.clickBtn);
                 }, 1000);
             }
         });
@@ -134,25 +140,23 @@ function factorial(n) {
     return n === 0 || n === 1 ? n : n * factorial(n - 1);
 }
 
-function trigonemtryFuncs(func, value,flag) {
-    let result = 0;
-    switch (func) {
-        case "sen-1":
-            result= flag===true ? Math.asin(value) :  Math.sin(value);
-            break;
-        case "cos-1":
-            result = flag===true ? Math.acos(value) : Math.cos(value);
-            break;
-        case "tan-1":
-            result = flag===true ? Math.atan(value) :  Math.tan(value);
-            break;
-        default:
-            break;
+const calculateSin = (value, flag) => flag === true ? Math.asin(value) : Math.sin(value);
+const calculateCos = (value, flag) => flag === true ? Math.acos(value) : Math.cos(value);
+const calculateTan = (value, flag) => flag === true ? Math.atan(value) : Math.tan(value);
+
+function trigonemtryFuncs(func, value, flag) {
+    const options = {
+        "sen-1": calculateSin(value, flag),
+        "cos-1": calculateCos(value, flag),
+        "tan-1": calculateTan(value, flag),
+        "default": "0"
     }
-    return result;
+    return options[func] || options['default'];
 }
 
-function changeLastValueOfInput(inputControl,newLastValue) {
+
+
+function changeLastValueOfInput(inputControl, newLastValue) {
     let sliceValue = inputControl.textContent.slice(0, inputControl.textContent.length - 1);
     inputControl.textContent = sliceValue + newLastValue;
 }
