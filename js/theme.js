@@ -1,22 +1,24 @@
-const d = document;
+export default class Themes{
+    constructor(btnSelector){
+        this.$buttonsThemes= document.querySelectorAll(btnSelector);
+        this.$linkStylesheet= document.querySelector(`link[data-theme= "theme-style"]`);
+        this.pathStylesheet = {
+            "btn-dark-theme": "css/dark_theme.css",
+            "btn-light-theme": "css/light_theme.css",
+            "btn-purple-theme": "css/purple_theme.css"
+        }
+    }
 
-export default function changeThemes(buttons) {
-    const $buttonsThemes = d.querySelectorAll(buttons);
-
-    $buttonsThemes.forEach(btn => {
-        btn.addEventListener("click", e => {
-            const $theme = d.querySelector(`link[data-theme= "theme-style"]`);
-            const pathStylesheet = {
-                "btn-dark-theme": "css/dark_theme.css",
-                "btn-light-theme": "css/light_theme.css",
-                "btn-purple-theme": "css/purple_theme.css"
-            }
-            if (e.target.classList.contains("opacity-none")) e.target.classList.remove("opacity-none");
-
-            $buttonsThemes.forEach(button => {
-                if (e.target.id !== button.id) button.classList.add("opacity-none");
+    changeThemes(){
+        this.$buttonsThemes.forEach(btn => {
+            btn.addEventListener("click", e => {
+                if (e.target.classList.contains("opacity-none")) e.target.classList.remove("opacity-none");
+    
+                this.$buttonsThemes.forEach(button => {
+                    if (e.target.id !== button.id) button.classList.add("opacity-none");
+                });
+                this.$linkStylesheet.href = this.pathStylesheet[btn.id];
             });
-            $theme.href = pathStylesheet[btn.id];
-        });
-    })
+        })
+    }
 }

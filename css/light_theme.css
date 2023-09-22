@@ -67,7 +67,7 @@ body {
 }
 
 
-.container__calculator__controls__buttons__func>span {
+.container__calculator__controls__buttons__func>* {
     background-color: var(--very-light-gray-screen-bg);
     color: var(--very-dark-grayish-yellow);
 }

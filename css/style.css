@@ -156,8 +156,6 @@ body {
     border-radius: 5px;
     flex: 1 0 5%;
     cursor: pointer;
-    background-color: var(--light-grayish-orange);
-    color: var(--very-dark-grayish-blue);
     position: relative;
 }
 

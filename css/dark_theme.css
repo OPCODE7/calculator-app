@@ -66,10 +66,12 @@ body {
 }
 
 
-.container__calculator__controls__buttons__func>span {
+.container__calculator__controls__buttons__func>* {
     background-color: var(--light-grayish-orange);
     color: var(--very-dark-grayish-blue);
 }
+
+
 
 
 .reset__button{
